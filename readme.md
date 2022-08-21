@@ -12,4 +12,4 @@ With DackPad, a user can edit, open, and save simple text (.txt) files on their 
 
 DackPad contains a utilities such as themes, zoom options, and text statistics.
 
-first thing written on new branch
+actual first thing written on new branch lmao
