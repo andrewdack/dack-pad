@@ -1,22 +1,16 @@
 """Collection of functions used for each PySimpleGui event in dackpad.main()"""
+import webbrowser
 from datetime import datetime
+from os import path
 from types import NoneType
 
 import PySimpleGUI as sg
-from os import path
 from PySimpleGUI import Window
-
-from utils import (  # NOQA
-    LOGO_FILE_PATH,
-    DPWindows,
-    file_name,
-    file_saved,
-    font_size,
-    current_theme
-)
 
 # flake8 err: dpwindows.font_size imported but unused
 from textstats import number_of_characters, number_of_lines, number_of_words
+from utils import (LOGO_FILE_PATH, DPWindows, current_theme, file_name,  # NOQA
+                   file_saved, font_size)
 
 
 class SGEvent:
@@ -248,3 +242,11 @@ def replace_text(values: SGValues, window: Window) -> None:
                 window["-textbox-"].update(current_text)
                 break
     replace_window.close()
+
+
+def open_source_win():
+    pass
+
+
+def open_github(link):
+    webbrowser.open(f"https://github.com/DackCodes/{link}")

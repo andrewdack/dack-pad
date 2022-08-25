@@ -45,14 +45,12 @@ def main() -> None:
         if event in SOURCES:
             pass
 
-        if event in ["About DSI", "About DackPad", "GitHub"]:
+        if event in ["About DSI", "About DackPad", "DackPad GitHub (About)"]:
             match event:
                 case "About DSI":
                     pass
-                case "About DackPad":
-                    pass
-                case "GitHub":
-                    events.open_github("https://github.com/DackCodes/dack-pad")
+                case "DackPad GitHub (About)":
+                    events.open_github("dack-pad")
 
     window.close()
 

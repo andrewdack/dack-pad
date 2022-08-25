@@ -1,7 +1,6 @@
-import webbrowser
 import PySimpleGUI as sg
 
-LOGO_FILE_PATH = r"C:\Users\Andrew Hu\OneDrive\Documents\Programming\Python\Projects\PySimpleGUI\Projects\dackpad\graphics\dack-logo.ico"
+LOGO_FILE_PATH = r"graphics\dack-logo.ico"
 
 THEME_MODES = ["Dark Mode", "Light Mode"]
 ZOOM_OPTIONS = ["Zoom In", "Zoom Out", "Restore Default Zoom"]
@@ -11,7 +10,7 @@ MENU_LAYOUT = [
     ["Tools", ["Text Statistics", "---"]],
     ["Edit", ["Replace", "Date/Time"]],
     ["View", ["Zoom", ZOOM_OPTIONS, "Theme", THEME_MODES]],
-    ["About", ["About DSI", "About DackPad", "Source Code", SOURCES, "GitHub"]]
+    ["About", ["About DSI", "Source Code", SOURCES, "DackPad GitHub (About)"]]
 ]
 
 file_name = "Untitled.txt"
@@ -75,7 +74,7 @@ class DPWindows:
         )
 
     @staticmethod
-    def create_basic_popup(msg: str, title: str, exception: Exception) -> sg.Window:
+    def create_basic_popup(msg: str, title: str) -> sg.Window:
         return sg.popup_error(
             msg,
             title=title,
@@ -113,11 +112,3 @@ class DPWindows:
             use_custom_titlebar=False,
             icon=LOGO_FILE_PATH,
         )
-
-
-def open_source_win():
-    pass
-
-
-def open_github(link):
-    webbrowser.open(link)
