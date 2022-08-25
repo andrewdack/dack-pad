@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 
-from utils import DPWindows, THEME_MODES, ZOOM_OPTIONS, current_theme
+from utils import DPWindows, THEME_MODES, ZOOM_OPTIONS, SOURCES, current_theme
 import events
 
 
@@ -41,6 +41,18 @@ def main() -> None:
 
         if event == "Replace":
             events.replace_text(values, window)
+
+        if event in SOURCES:
+            pass
+
+        if event in ["About DSI", "About DackPad", "GitHub"]:
+            match event:
+                case "About DSI":
+                    pass
+                case "About DackPad":
+                    pass
+                case "GitHub":
+                    events.open_github("https://github.com/DackCodes/dack-pad")
 
     window.close()
 
