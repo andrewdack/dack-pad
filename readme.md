@@ -1,6 +1,6 @@
 ## DackPad © 2022 DSI | All Rights Reserved
 
-## (DSI) Dack Software Industries | **DackCodes**
+## Dack Software Industries | **DackCodes**
 
 # DackPad
 
