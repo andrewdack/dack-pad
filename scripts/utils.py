@@ -2,15 +2,13 @@ import PySimpleGUI as sg
 
 LOGO_FILE_PATH = r"graphics\dack-logo.ico"
 
-THEME_MODES = ["Dark Mode", "Light Mode"]
 ZOOM_OPTIONS = ["Zoom In", "Zoom Out", "Restore Default Zoom"]
 SOURCES = ["dackpad.py", "utils.py", "textstats.py", "events.py"]
 MENU_LAYOUT = [
     ["File", ["Open", "Save", "---", "Exit"]],
-    ["Tools", ["Text Statistics", "---"]],
-    ["Edit", ["Replace", "Date/Time"]],
-    ["View", ["Zoom", ZOOM_OPTIONS, "Theme", THEME_MODES]],
-    ["About", ["About DSI", "Source Code", SOURCES, "DackPad GitHub (About)"]]
+    ["Tools", ["Text Statistics", "---", "Replace", "Date/Time"]],
+    ["View", ["Zoom", ZOOM_OPTIONS]],
+    ["About", ["About DackCodes", "Source Code", SOURCES, "DackPad GitHub (About)"]]
 ]
 
 file_name = "Untitled.txt"
@@ -74,15 +72,6 @@ class DPWindows:
         )
 
     @staticmethod
-    def create_basic_popup(msg: str, title: str) -> sg.Window:
-        return sg.popup_error(
-            msg,
-            title=title,
-            line_width=75,
-            icon=LOGO_FILE_PATH,
-        )
-
-    @staticmethod
     def create_main_window(theme: str, text: str = "") -> sg.Window:
         global font_size
         sg.theme(theme)
@@ -109,6 +98,6 @@ class DPWindows:
             "DackPad",
             layout=layout,
             size=(800, 600),
-            use_custom_titlebar=False,
             icon=LOGO_FILE_PATH,
+            enable_close_attempted_event=True
         )

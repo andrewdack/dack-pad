@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 
-from utils import DPWindows, THEME_MODES, ZOOM_OPTIONS, SOURCES, current_theme
+from utils import DPWindows, ZOOM_OPTIONS, SOURCES, current_theme
 import events
 
 
@@ -10,10 +10,7 @@ def main() -> None:
     while True:
         event, values = window.read()
 
-        if event == sg.WIN_CLOSED:
-            break
-
-        if event == "Exit":
+        if event in {"Exit", sg.WINDOW_CLOSE_ATTEMPTED_EVENT}:
             exit = events.exit_attempt(values, window)
             if exit:
                 break
@@ -21,8 +18,10 @@ def main() -> None:
         if event == "-textbox-":
             events.char_typed(window)
 
-        if event in THEME_MODES:
-            events.change_theme(event, values, window)
+        # if event in THEME_MODES:
+        #     window = events.change_theme(event, values, window)
+        #     if not file_saved:
+        #         events.char_typed(window)
 
         if event in ZOOM_OPTIONS:
             events.change_zoom(event, window)
@@ -43,12 +42,12 @@ def main() -> None:
             events.replace_text(values, window)
 
         if event in SOURCES:
-            pass
+            events.open_source_win(event)
 
-        if event in ["About DSI", "About DackPad", "DackPad GitHub (About)"]:
+        if event in ["About DackCodes", "DackPad GitHub (About)"]:
             match event:
-                case "About DSI":
-                    pass
+                case "About DackCodes":
+                    events.open_github("DackCodes")
                 case "DackPad GitHub (About)":
                     events.open_github("dack-pad")
 
