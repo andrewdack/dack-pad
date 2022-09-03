@@ -262,6 +262,7 @@ def replace_text(values: SGValues, window: Window) -> None:
             icon=LOGO_FILE_PATH,
         )
         char_typed(window)
+        return
 
     # text didn't change
     sg.popup_auto_close(
