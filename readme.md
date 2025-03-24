@@ -1,6 +1,6 @@
-## DackPad © 2022 | All Rights Reserved
+## DackPad 2022
 
-## Dack Softwares | **DackCodes**
+## Andrew Hu | **andrewdack**
 
 # DackPad
 
